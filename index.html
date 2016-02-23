@@ -5,13 +5,13 @@
 	<link rel="stylesheet" href="assets/plugins/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="assets/styles/style.css">
 </head>
-<body ng-controller="MusicController"  ng-cloak>
+<body ng-controller="MusicController">
 
 	<div class="container-fluid">
 
 		<div class="note" ng-repeat="note in notes" ng-mouseover="playNote(note)">
 			{{note.note}}
-			<audio src="{{note.wave}}"></audio>
+			<audio src="{{note.wave}}" id="{{note.note}}"></audio>
 		</div>
 
 		<div>
