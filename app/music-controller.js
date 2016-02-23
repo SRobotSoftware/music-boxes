@@ -51,7 +51,7 @@ app.controller('MusicController', function ($scope) {
 	function playSong(aSong) {
 		console.log(aSong);
 		for (var i = 0; i < aSong.length; ++i) {
-			playSound(aSong.note);
+			playSound(aSong[i]);
 		}
 	};
 
