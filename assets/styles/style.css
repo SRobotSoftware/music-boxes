@@ -1,0 +1,17 @@
+body {
+	background-color: #ddd;
+	text-align: center;
+}
+
+.note {
+	display: inline-block;
+	margin: 10px;
+	background-color: ivory;
+	border: 2px solid black;
+	height: 50px;
+	width: 30px;
+}
+
+.note:hover {
+	background-color: #ffb;
+}

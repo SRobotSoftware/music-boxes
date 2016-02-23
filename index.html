@@ -1,0 +1,33 @@
+<html ng-app="musicBoxes">
+<head>
+	<meta charset="UTF-8">
+	<title>Music Boxes</title>
+	<link rel="stylesheet" href="assets/plugins/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body ng-controller="MusicController"  ng-cloak>
+
+	<div class="container-fluid">
+
+		<div class="note" ng-repeat="note in notes" ng-mouseover="playNote(note)">
+			{{note.note}}
+			<audio src="{{note.wave}}"></audio>
+		</div>
+
+		<div>
+			<button ng-if="!recording" class="btn btn-danger" ng-click="record();">Record</button>
+			<button ng-if="recording" class="btn btn-danger" ng-click="stop();">Stop</button>
+			<button class="btn btn-success" ng-click="playRecorded();">Playback</button>
+		</div>
+
+	</div>
+
+	<!--JS Plugins-->
+	<script src="assets/plugins/jquery/dist/jquery.js"></script>
+	<script src="assets/plugins/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="assets/plugins/angular/angular.js"></script>
+	<!--Custom JS App-->
+	<script src="app/config/init.js"></script>
+	<script src="app/music-controller.js"></script>
+</body>
+</html>
