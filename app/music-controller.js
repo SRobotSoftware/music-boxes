@@ -1,4 +1,4 @@
-app.controller('MusicController', function ($scope) {
+app.controller('MusicController', function ($scope, $timeout) {
 
 	////////////////////
 	// Vars						//
@@ -56,11 +56,23 @@ app.controller('MusicController', function ($scope) {
 
 	// Private Functions
 
+
 	function playSong(aSong) {
+
 		console.log(aSong);
-		for (var i = 0; i < aSong.length; ++i) {
-			playSound(aSong[i]);
-		}
+
+		var maxLoops = aSong.length;
+		var counter = 0;
+
+		(function next() {
+			if (counter++ >= maxLoops) return;
+
+			setTimeout(function () {
+				playSound(aSong[counter-1]);
+        next();
+			}, 500);
+		})();
+
 	};
 
 	function clearSong() {
@@ -68,7 +80,9 @@ app.controller('MusicController', function ($scope) {
 	};
 
 	function playSound(note) {
-		document.getElementById(note.note).play();
+		var mySound = document.getElementById(note.note);
+		mySound.currentTime = 0;
+		mySound.play();
 	}
 
 });

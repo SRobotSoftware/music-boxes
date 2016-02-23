@@ -2,8 +2,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Music Boxes</title>
-	<!--Bootstrap CSS-->
+	<!--Bootstrap/Font-Awesome CSS-->
 	<link rel="stylesheet" href="assets/plugins/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<!--Custom CSS-->
 	<link rel="stylesheet" href="assets/styles/style.css">
 </head>
@@ -19,9 +20,9 @@
 
 		<!--Buttons-->
 		<div>
-			<button ng-if="!recording" class="btn btn-danger" ng-click="record();">Record</button>
-			<button ng-if="recording" class="btn btn-danger" ng-click="stop();">Stop</button>
-			<button class="btn btn-success" ng-click="playRecorded();">Playback</button>
+			<button ng-if="!recording" class="btn btn-danger" ng-click="record();"><i class="fa fa-circle"></i></button>
+			<button ng-if="recording" class="btn btn-danger" ng-click="stop();"><i class="fa fa-stop"></i></button>
+			<button class="btn btn-success" ng-click="playRecorded();"><i class="fa fa-play"></i></button>
 		</div>
 
 	</div>
