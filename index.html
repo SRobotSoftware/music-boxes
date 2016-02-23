@@ -2,18 +2,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Music Boxes</title>
+	<!--Bootstrap CSS-->
 	<link rel="stylesheet" href="assets/plugins/bootstrap/dist/css/bootstrap.css">
+	<!--Custom CSS-->
 	<link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body ng-controller="MusicController">
 
 	<div class="container-fluid">
 
+		<!--Keys-->
 		<div class="note" ng-repeat="note in notes" ng-mouseover="playNote(note)">
 			{{note.note}}
 			<audio src="{{note.wave}}" id="{{note.note}}"></audio>
 		</div>
 
+		<!--Buttons-->
 		<div>
 			<button ng-if="!recording" class="btn btn-danger" ng-click="record();">Record</button>
 			<button ng-if="recording" class="btn btn-danger" ng-click="stop();">Stop</button>

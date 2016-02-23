@@ -1,6 +1,8 @@
 app.controller('MusicController', function ($scope) {
 
-	// Vars
+	////////////////////
+	// Vars						//
+	////////////////////
 
 	$scope.notes = [
 		{ note: 'A', wave: 'assets/sounds/39212_35187-lq.mp3' },
@@ -21,7 +23,11 @@ app.controller('MusicController', function ($scope) {
 
 	$scope.recording = false;
 
-	// Functions
+	////////////////////
+	// Functions			//
+	////////////////////
+
+	// Public Functions
 
 	$scope.playNote = function (note) {
 		console.log(note.note);
@@ -47,6 +53,8 @@ app.controller('MusicController', function ($scope) {
 		console.log('Play Recording');
 		playSong(song);
 	};
+
+	// Private Functions
 
 	function playSong(aSong) {
 		console.log(aSong);
