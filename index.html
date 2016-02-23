@@ -25,6 +25,9 @@
 			<button class="btn btn-success" ng-click="playRecorded();"><i class="fa fa-play"></i></button>
 		</div>
 
+		<p ng-if="song.length > 0">Your Song:</p>
+		<div class="note" ng-repeat="note in song track by $index">{{note.note}}</div>
+
 	</div>
 
 	<!--JS Plugins-->

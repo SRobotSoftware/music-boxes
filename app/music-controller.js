@@ -1,4 +1,4 @@
-app.controller('MusicController', function ($scope, $timeout) {
+app.controller('MusicController', function ($scope, $interval) {
 
 	////////////////////
 	// Vars						//
@@ -19,7 +19,7 @@ app.controller('MusicController', function ($scope, $timeout) {
 		{ note: 'G#', wave: 'assets/sounds/39201_35187-lq.mp3' },
 		{ note: 'rest', wave: '' }
 		];
-	var song = [];
+	$scope.song = [];
 
 	$scope.recording = false;
 
@@ -33,7 +33,7 @@ app.controller('MusicController', function ($scope, $timeout) {
 		console.log(note.note);
 		playSound(note);
 		if ($scope.recording) {
-			song.push(note);
+			$scope.song.push(note);
 		}
 	};
 
@@ -51,7 +51,7 @@ app.controller('MusicController', function ($scope, $timeout) {
 	$scope.playRecorded = function () {
 		$scope.stop();
 		console.log('Play Recording');
-		playSong(song);
+		playSong($scope.song);
 	};
 
 	// Private Functions
@@ -61,22 +61,19 @@ app.controller('MusicController', function ($scope, $timeout) {
 
 		console.log(aSong);
 
-		var maxLoops = aSong.length;
-		var counter = 0;
-
-		(function next() {
-			if (counter++ >= maxLoops) return;
-
-			setTimeout(function () {
-				playSound(aSong[counter-1]);
-        next();
-			}, 500);
-		})();
+		var i = 0;
+		var interval = setInterval(function () {
+			playSound(aSong[i]);
+			i++;
+			if (i >= aSong.length) {
+				clearInterval(interval);
+			}
+		}, 600);
 
 	};
 
 	function clearSong() {
-		song = [];
+		$scope.song = [];
 	};
 
 	function playSound(note) {
