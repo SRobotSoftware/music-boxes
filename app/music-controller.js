@@ -5,20 +5,46 @@ app.controller('MusicController', function ($scope, $interval) {
 	////////////////////
 
 	$scope.notes = [
-		{ note: 'A', wave: 'assets/sounds/39212_35187-lq.mp3' },
-		{ note: 'A#', wave: 'assets/sounds/39211_35187-lq.mp3' },
-		{ note: 'B', wave: 'assets/sounds/39210_35187-lq.mp3' },
-		{ note: 'C', wave: 'assets/sounds/39209_35187-lq.mp3' },
-		{ note: 'C#', wave: 'assets/sounds/39208_35187-lq.mp3' },
-		{ note: 'D', wave: 'assets/sounds/39207_35187-lq.mp3' },
-		{ note: 'D#', wave: 'assets/sounds/39206_35187-lq.mp3' },
-		{ note: 'E', wave: 'assets/sounds/39205_35187-lq.mp3' },
-		{ note: 'F', wave: 'assets/sounds/39204_35187-lq.mp3' },
-		{ note: 'F#', wave: 'assets/sounds/39203_35187-lq.mp3' },
-		{ note: 'G', wave: 'assets/sounds/39202_35187-lq.mp3' },
-		{ note: 'G#', wave: 'assets/sounds/39201_35187-lq.mp3' },
-		{ note: 'rest', wave: '' }
-		];
+		{
+			note: 'A',
+			wave: 'assets/sounds/39212_35187-lq.mp3'
+		}, {
+			note: 'A#',
+			wave: 'assets/sounds/39211_35187-lq.mp3'
+    }, {
+			note: 'B',
+			wave: 'assets/sounds/39210_35187-lq.mp3'
+    }, {
+			note: 'C',
+			wave: 'assets/sounds/39209_35187-lq.mp3'
+    }, {
+			note: 'C#',
+			wave: 'assets/sounds/39208_35187-lq.mp3'
+    }, {
+			note: 'D',
+			wave: 'assets/sounds/39207_35187-lq.mp3'
+    }, {
+			note: 'D#',
+			wave: 'assets/sounds/39206_35187-lq.mp3'
+    }, {
+			note: 'E',
+			wave: 'assets/sounds/39205_35187-lq.mp3'
+    }, {
+			note: 'F',
+			wave: 'assets/sounds/39204_35187-lq.mp3'
+    }, {
+			note: 'F#',
+			wave: 'assets/sounds/39203_35187-lq.mp3'
+    }, {
+			note: 'G',
+			wave: 'assets/sounds/39202_35187-lq.mp3'
+    }, {
+			note: 'G#',
+			wave: 'assets/sounds/39201_35187-lq.mp3'
+    }, {
+			note: 'rest',
+			wave: ''
+    }];
 	$scope.song = [];
 
 	$scope.recording = false;
@@ -67,8 +93,9 @@ app.controller('MusicController', function ($scope, $interval) {
 			i++;
 			if (i >= aSong.length) {
 				clearInterval(interval);
+				aSong[i - 1].lightUp = false;
 			}
-		}, 600);
+		}, 250);
 
 	};
 
